@@ -103,6 +103,7 @@ const useProxyPer = {
 const useProxy = async (target, data) => {
     if (target.constructor.name === "CdpPage") return useProxyPer.CDPPage(target, data);
     if (target.constructor.name === "CdpHTTPRequest") return useProxyPer.HTTPRequest(target, data);
+    if (target.constructor.name === "BidiPage") return useProxyPer.HTTPRequest(target, data);
     useProxyPer[target.constructor.name](target, data);
 };
 
